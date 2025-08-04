@@ -29,11 +29,11 @@ public class Solution {
 //
 //				#부호와 함께 테스트케이스의 번호를 출력하고, 공백 문자 후 조망권이 확보된 세대의 수를 출력한다.
 		
-		File file = new File("./src/day01_0804/SWEA/view1206/sample_input.txt");
+		File file = new File("src/day01_0804/SWEA/view1206/sample_input.txt");
 		
 		Scanner sc = new Scanner(file);
 		int T = 10;
-		
+
 		
 		for(int tc = 1; tc <= T; tc++) {
 			int ans = 0;
@@ -45,30 +45,34 @@ public class Solution {
 			for(int i = 0; i < N; i++) {
 				numArr[i] = sc.nextInt();
 			}
-			//조건 만족 시, 반경 2 이내의 건물 높이의 최대값 담기
-			int max = 0;
-			//양 옆 두칸은 0이 고정이므로 제외, 나머지 범위 반복문 돌리기
-			for(int i = 2; i <= N-1-2; i++) {
-				//포인터i 기준 양 옆 두칸 조회
-				for(int j = i-2; j <= i+2; j++) {
-					//같은 건물은 배제
-					if(j==i) {
-						continue;
+			if(N > 5) {
+				//조건 만족 시, 반경 2 이내의 건물 높이의 최대값 담기
+				//양 옆 두칸은 0이 고정이므로 제외, 나머지 범위 반복문 돌리기
+				for(int i = 2; i <= N-1-2; i++) {
+					int max = 0;
+					//포인터i 기준 양 옆 두칸 조회
+					for(int j = i-2; j <= i+2; j++) {
+						//같은 건물은 배제
+						if(j==i) {
+							continue;
+						}
+						//조망 확보 안되면 다음 건물로
+						if(numArr[j] >= numArr[i]) {
+							max = 0;
+							break;
+						}
+						//가장 높은 건물이라면 max에 넣기
+						if(numArr[j] > max) {
+							max = numArr[j];
+						}
 					}
-					//조망 확보 안되면 다음 건물로
-					if(numArr[j] >= numArr[i]) {
-						max = 0;
-						break;
-					}
-					//가장 높은 건물이라면 max에 넣기
-					if(numArr[j] > max) {
-						max = numArr[j];
+					//max에 값이 있다면(=위의 for문을 통과했다면 조망권이 확보된 건물) 조망권이 확보된 세대의 수를 ans에 추가  
+					if(max != 0) {
+						ans += numArr[i] - max;
 					}
 				}
-				//max에 값이 있다면(=위의 for문을 통과했다면 조망권이 확보된 건물) 조망권이 확보된 세대의 수를 ans에 추가  
-				if(max != 0) {
-					ans += numArr[i] - max;
-				}
+			} else {
+				ans = numArr[N/2];
 			}
 			
 			//정답을 출력할 때 #tc ans
