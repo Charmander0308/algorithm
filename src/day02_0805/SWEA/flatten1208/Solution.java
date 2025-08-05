@@ -22,14 +22,6 @@ public class Solution {
 			for(int i = 1; i <= dump; i++) {
 				//정렬(인덱스 0과 99에 자동으로 최저점과 최고점이 들어감) 
 				Arrays.sort(arr);
-//				if(int j = 0; j < 100; j++) {
-//					int minIndex = j;
-//					if(int k = j+1; k < 100; k++) {
-//						
-//					}
-//				}
-				
-				
 				
 				//이미 완료시 반복문 탈출
 				if(arr[99] - arr[0] <= 1) {
@@ -46,7 +38,5 @@ public class Solution {
 			
 			System.out.println("#" + test_case + " " + ans);
 		}
-		
 	}
-
 }
