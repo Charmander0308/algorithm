@@ -37,7 +37,6 @@ public class Solution {
 			while(true) {
 				//시작점이 arr[99][0]일때, c+dc[0]을 조회하면 Index -1 out of bounds for length 100 뜸,,,, 집가서 해결하기
 				
-				
 				//주변을 둘러봐라
 				//1. 상=1, 좌=0, 우=0 
 				if(arr[r+dr[0]][c+dc[0]] == 0 && arr[r+dr[1]][c+dc[1]] == 1 && arr[r+dr[2]][c+dc[2]] == 0) {

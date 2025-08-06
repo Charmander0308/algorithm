@@ -11,7 +11,7 @@ public class Solution_byYMG {
 		int T = sc.nextInt();
 		
 		for(int test_case = 1; test_case <= T; test_case++) {
-			int ans = 0;
+//			int ans = 0;
 			int N = sc.nextInt();
 			int[][] arr = new int[N][N];
 			
