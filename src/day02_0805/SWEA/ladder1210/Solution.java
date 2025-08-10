@@ -1,6 +1,7 @@
 package day02_0805.SWEA.ladder1210;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Solution {
@@ -13,6 +14,7 @@ public class Solution {
 		int[] dr = {0, -1, 0};
 		int[] dc = {-1, 0, 1};
 		int[][] arr = new int[100][100];
+		
 		
 		for(int test_case = 1; test_case <= T; test_case++) {
 			int tc = sc.nextInt();
@@ -52,6 +54,8 @@ public class Solution {
 			
 			
 		}
+		
+		
 		
 	}
 
