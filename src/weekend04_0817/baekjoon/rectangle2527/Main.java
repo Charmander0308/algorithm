@@ -1,4 +1,4 @@
-package aug2025.weekend04_0817.baekjoon.rectangle2527;
+package weekend04_0817.baekjoon.rectangle2527;
 
 import java.util.Scanner;
 
