@@ -45,7 +45,7 @@ public class Main {
 		}
 		//마지막 반복이면 남은 num1값 한번 더 출력
 		System.out.println(num1);
-		
+
 	}
 
 }
