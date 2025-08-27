@@ -1,4 +1,4 @@
-package aug2025.interlude03_0822.baekjoon.colored_paper2563;
+package aug2025.interlude07_0826.baekjoon.colored_paper2563;
 
 import java.util.Scanner;
 
