@@ -14,11 +14,11 @@ public class Solution {
 	static final int INF = Integer.MAX_VALUE;	//무한
 
 	
-	static class Node {
+	static class Node implements Comparable<Node>{
 		int to;
-		double dist;
+		long dist;	//정확한 거리값말고 제곱인 그대로 받아두기 
 
-		public Node(int to, double dist) {
+		public Node(int to, long dist) {
 			this.to = to;
 			this.dist = dist;
 		}
@@ -26,6 +26,11 @@ public class Solution {
 		@Override
 		public String toString() {
 			return "Node [to=" + to + ", dist=" + dist + "]";
+		}
+
+		@Override
+		public int compareTo(Node o) {
+			return Long.compare(this.dist, o.dist);	//고급기술...걍 외우자 
 		}
 		
 	}
@@ -66,49 +71,39 @@ public class Solution {
 					
 					int width = Math.abs(x1 - x2);
 					int height = Math.abs(y1 - y2);
-					double dist = 0;
-					//대각선으로 위치한 경우
-					if(width != 0 && height != 0) {
-						dist = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
-					}
-					//수직으로 위치한 경우
-					else if(width == 0 && height != 0) {
-						dist = height;
-					}
-					//수평으로 위치한 경우
-					else if(height == 0 && width != 0) {
-						dist = width;
-					}
+					long dist = 0;
+					//경우 나눌 필요없이, 어차피 다 똑같이 계산됨...ㅠ
+					dist = (long) (Math.pow(width, 2) + Math.pow(height, 2));
+					//무향이니까 다 넣어주자 
 					edges[i].add(new Node(j, dist));
+					edges[j].add(new Node(i, dist));
 				}
 			}
 			
 //			System.out.println(edges);
 			
 			//프림을 써보자
-			int[] p = new int[N];
-			int[] key = new int[N];
 			boolean[] visited = new boolean[N];
+			PriorityQueue<Node> pq = new PriorityQueue<>();
+			long ans = 0;
+		
+			int pick = 0;	//(노드수-1) 만큼 고르면 종료할거야~ 
+			visited[0] = true;	//시작노드는 방문처리~
+			for(Node n : edges[0]) pq.add(n);	//시작노드랑 연결된 다른노드들 다 넣기 
 			
-			for(int i=0; i<N; i++) {
-				key[i] = INF;
+			//다 찾기 전까지 반복~
+			while(pick < N-1) {
+				Node n = pq.poll();	//우선순위큐라서 제일 최소값부터 알아서 찾게된다.
+				if(visited[n.to]) continue;	//이미 처리된곳은 패스 
+				
+				ans += n.dist;	//dist를 정답에 추가 
+				visited[n.to] = true;	//방문처리!
+				pick++;	//하나 골랐슈~
+				
+				pq.addAll(edges[n.to]);	//연결된 노드들 다 pq에 넣기(반복)
 			}
-			Arrays.fill(p, -1);
-			PriorityQueue<Integer> pq = new PriorityQueue<>();
-			
-			key[0] = 0;
-			
-			while(!pq.isEmpty()) {
-				
-				
-				
-			}
-			
-			
-			
-			
-			
-			
+			double totalAns = ans * E;	//다 더해진 값에 환경부담세율 곱해주기..
+			System.out.println("#" + test_case + " " + Math.round(totalAns));	//반올림해서 출력 
 			
 		}
 	}
