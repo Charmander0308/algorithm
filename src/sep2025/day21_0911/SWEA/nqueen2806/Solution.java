@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Solution {
-	static int count;
-	static int N;
-	static int[] col;
+	static int count;	//전부 배치 가능한 경우 세기
+	static int N;		//퀸 개수 겸 체스판 사이즈
+	static int[] col;	//해당 행의 열 번호
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		File file = new File("src/sep2025/day21_0911/SWEA/nqueen2806/sample_input.txt");
@@ -34,7 +34,9 @@ public class Solution {
 		
 		for(int i=0; i<N; i++) {
 			col[row] = i;	//row 행에는 i 열에 둬보자!
-			if(promise(row)) nqueen(row + 1);	//문제 없으면 다음 행으로
+			
+			if(promise(row)) 
+				nqueen(row + 1);	//문제 없으면 다음 행으로
 		}
 		
 	}
