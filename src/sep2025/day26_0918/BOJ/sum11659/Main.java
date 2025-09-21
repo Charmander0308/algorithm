@@ -1,4 +1,4 @@
-package sep2025.day0918.BOJ.sum11659;
+package sep2025.day26_0918.BOJ.sum11659;
 
 import java.io.BufferedReader;
 import java.io.IOException;

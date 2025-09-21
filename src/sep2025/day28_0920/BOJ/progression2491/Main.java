@@ -1,4 +1,4 @@
-package sep2025.day0920.BOJ.progression2491;
+package sep2025.day28_0920.BOJ.progression2491;
 
 import java.util.Scanner;
 

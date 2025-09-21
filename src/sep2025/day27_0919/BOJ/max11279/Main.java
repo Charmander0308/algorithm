@@ -1,4 +1,4 @@
-package sep2025.day0919.BOJ.max11279;
+package sep2025.day27_0919.BOJ.max11279;
 
 import java.util.Collections;
 import java.util.PriorityQueue;

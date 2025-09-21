@@ -1,4 +1,4 @@
-package sep2025.day0917.SWEA.omok11315;
+package sep2025.day25_0917.SWEA.omok11315;
 
 import java.io.File;
 import java.io.FileNotFoundException;
