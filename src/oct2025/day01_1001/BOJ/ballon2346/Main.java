@@ -1,19 +1,32 @@
 package oct2025.day01_1001.BOJ.ballon2346;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
+	static class Ballon {
+		int idx, score;
+		public Ballon(int idx, int score) {
+			this.idx = idx;
+			this.score = score;
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
 		Deque<Integer> d = new ArrayDeque<>();
 		Deque<Integer> idxQueue = new ArrayDeque<>();
 		for(int i=0; i<N; i++) {
-			d.add(sc.nextInt());
+			d.add(Integer.parseInt(st.nextToken()));
 			idxQueue.add(i+1);
 		}
 		List<Integer> answer = new LinkedList<>();
@@ -43,8 +56,12 @@ public class Main {
 				answer.add(idxQueue.pollLast());
 			}
 		}
-		for(int num : answer) {
-			System.out.print(num + " ");
+//		for(int num : answer) {
+//			System.out.print(num + " ");
+//		}
+		for(int i=0; i<N; i++) {
+			System.out.print(answer.get(i));
+			if(i<N-1) System.out.print(" ");
 		}
 		
 	}
