@@ -17,7 +17,6 @@ public class Main {
 	}
 	
 	static int N;
-	static boolean[] isChecked;
 	static Material[] mArr;
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -30,13 +29,14 @@ public class Main {
 			st = new StringTokenizer(br.readLine());
 			mArr[i] = new Material(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 		}
-		isChecked = new boolean[N];
 		
+		function(1, 1);
 		
 	}
 	
-	private void function(int cnt, int sour, int bitter) {
+	private static void function(int cnt, int idx) {
 		//종료
+		
 		
 		//로직
 		
