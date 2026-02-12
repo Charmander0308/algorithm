@@ -1,0 +1,29 @@
+1) 
+towerOfHanoi(int n, String A, String B, String C)
+	if n = 1
+		1 : A -> C
+	towerOfHanoi(n-1, A, C, B)
+	n : A -> C
+	towerOfHanoi(n-1, B, A, C)
+
+2)
+재귀함수 중 하노이탑은 자신을 두번씩 호출하기 때문에 O(N^2)의 시간복잡도를 가진다.
+값이 일정하게 줄어드는 연산과 최소조건이 필수적이다. 이를 지키지 않으면  스택오버플로우가 발생한다.
+
+3)
+A B
+A C
+B C
+A B
+C A
+C B
+A B
+A C
+B C
+B A
+C A
+B C
+A B
+A B
+B C
+15회
